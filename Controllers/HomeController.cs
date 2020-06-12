@@ -10,10 +10,10 @@ namespace test2.Controllers
     public class HomeController : Controller
     {
 
-        string fromEmail = "tmoore@stjweb.org";
+        string fromEmail = "";
         string host = "smtp.gmail.com";
         int port = 587;
-        string pw = "69755Stj!";
+        string pw = "";
 
 
         public ActionResult Index()
