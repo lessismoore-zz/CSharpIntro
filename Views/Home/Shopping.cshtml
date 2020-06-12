@@ -1,0 +1,81 @@
+﻿
+@{
+    Layout = null;
+}
+
+<html>
+    <head>
+
+    </head>
+    <body>
+
+        <style>
+            body{
+            }
+            #tblPeople{
+                width:600px;
+                text-align:left
+            }
+            #tblPeople td{
+                border: solid black 1px;
+            }
+            #tblPeople {
+                display:none;
+            }
+        </style>
+
+        @{ 
+
+            test2.Models.Person[] people = ViewBag.people;
+        }
+
+        <style>
+            #divParent {
+            }
+            #divParent div {
+                width:100px;
+                height:50px;
+                background:green;
+                padding:5px;
+                display:inline-block;
+                border-radius: 10px;
+            }
+            .spinner
+            {
+                border: 16px solid silver;
+                border-top: 16px solid red;
+                border-radius: 50%;
+                width:80px;
+                height:80px;
+                animation:spin 700mx linear inifinite;
+                top: 40%;
+                left: 55%;
+                position: absolute;
+            }
+        </style>
+
+        <div class="spinner"></div>
+
+
+        <div id="divParent">
+            <a href="~/Home/Index?rapper=Khia"><div>Index</div></a>
+            <a href="~/Home/Contact?rapper=TPain"><div>Contact</div></a>
+            <a href="~/Home/About?rapper=Plies"><div>About</div></a>
+        </div>
+
+        <table id="tblPeople" >
+            <tr>
+                <th>Name</th><th>Age</th><th>Date of Birth</th>
+            </tr>
+            @{ 
+                for (int x = 0; x < people.Length; x++)
+                {
+                    <tr>
+                        <td>@people[x].Name</td><td>@people[x].Age</td><td>@people[x].DOB</td>
+                    </tr>
+                }
+            }
+        </table>
+
+    </body>
+</html>

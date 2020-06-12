@@ -1,0 +1,121 @@
+﻿@{
+    ViewBag.Title = "Contact";
+
+    if (HttpContext.Current.Request.QueryString["complete"] != null) 
+    {
+        <script>
+            alert('Thank you for contacting us!')
+        </script>
+    }
+}
+
+<h2>@ViewBag.Title.</h2>
+<h3>Contact Page</h3>
+
+<style>
+    #tblContact{
+        margin:25px;
+    }
+    #tblContact td{
+        padding:5px;
+    }
+</style>
+
+<form method="post" action="~/Home/SendMessage"  >
+    <table id="tblContact">
+        <tr>
+            <td>Name: </td>
+            <td>
+                <input type="text" id="txtName" name="txtName" />
+            </td>
+        </tr>
+        <tr>
+            <td>Email: </td>
+            <td>
+                <input type="text" id="txtEmail" name="txtEmail" />
+            </td>
+        </tr>
+        <tr>
+            <td>Phone: </td>
+            <td>
+                <input type="text" id="txtPhone" name="txtPhone" />
+            </td>
+        </tr>
+        <tr>
+            <td>Address: </td>
+            <td>
+                <input type="text" id="txtAddress" name="txtAddress" />
+            </td>
+        </tr>
+        <tr>
+            <td>Twitter: </td>
+            <td>
+                <input type="text" id="txtTag" name="txtTag" />
+            </td>
+        </tr>
+        <tr>
+            <td>Fax: </td>
+            <td>
+                <input type="text" id="txtFax" name="txtFax" />
+            </td>
+        </tr>
+        <tr>
+            <td>Message: </td>
+            <td>
+                <textarea type="text" id="txtMessage"  style="width:300px; height:100px;" name="txtMessage"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" id="btnSend" value="Send" />
+            </td>
+        </tr>
+    </table>
+</form>
+
+<address>
+    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
+    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+</address>
+
+<script>
+
+    document.getElementById('btnSend').onclick = function () {
+
+        var name = document.getElementById('txtName').value;
+        var email = document.getElementById('txtEmail').value;
+        var phone = document.getElementById('txtPhone').value;
+        var address = document.getElementById('txtAddress').value;
+        var tag = document.getElementById('txtTag').value;
+        var fax = document.getElementById('txtFax').value;
+
+        if (name.length > 100) {
+            alert('Name field is too long.');
+            return false;
+        }
+        if (email.length > 100) {
+            alert('Email field is too long.');
+            return false;
+        }
+        if (email.indexOf('@@') == -1) {
+            alert('Email is invalid.');
+            return false;
+        }
+
+        if ((name.length == 0) || (email.length == 0) || (phone.length == 0) || (address.length == 0) || (tag.length == 0) || (fax.length == 0))
+        {
+            alert('All fields are required for submission.');
+            return false;
+        }
+
+        var result = confirm('Do you want to continue and send your message');
+
+        if (!result) {
+            return false;
+        }
+
+    }
+
+</script>
+
+
