@@ -68,7 +68,7 @@ namespace test2.Controllers
 
             xdocFeedXML.Save(HttpContext.Server.MapPath(@"../App_Data\Contacts.xml"));
 
-            string[] emails = { "todd1.terry1@gmail.com", "timothydmoore@yahoo.com", "arusse9393@gmail.com" };
+            string[] emails = { "test.test@gmail.com", "test.test@yahoo.com", "test.test@gmail.com" };
 
             for (int x = 0; x < emails.Length; x++) 
             {
